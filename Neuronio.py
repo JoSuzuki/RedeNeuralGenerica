@@ -1,12 +1,27 @@
+#Importa Rede e Camada porque vai que precisa.
+#Importa math só por causa da função exp.
+#Importa random so para atribuir pesos aleatórios para as entradas.
+
+import Rede as R
+import Camada as C
+import math as M
+import random
+
 class Neuronio():
-    def ___init__(self):
+    def _init_(self, numero_pesos):
+        self.pesos = []
+        for i in range(0, numero_pesos):
+            self.pesos.append(random.random())
+        
+    def somatoria(self, entradas, bias):
+        valor = 0
+        for i in range(0, len(self.entradas)):
+            valor = valor + entradas[i] * pesos[i]
 
-    def calcular_saida(self, entradas):
+        return valor + bias
 
-    def somatoria(self, ):
+    def ativacao(self, valor):
+        return 1.0/(1 + M.exp(-valor))
 
-    def ativacao(self, ):
-
-    def derivada_ativacao(self, ):
-
-    def get_saida(self):
+    def derivada_ativacao(self, valor):
+        return M.exp(valor)/(M.exp(valor) + 1)^2
